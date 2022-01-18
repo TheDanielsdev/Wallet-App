@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wallet_app/screens/notifications.dart';
+import 'package:wallet_app/screens/profile_settings.dart';
 
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
@@ -51,12 +53,18 @@ class Settings extends StatelessWidget {
                       Icons.person_outline,
                       color: Colors.deepPurple,
                     )),
-                title: const Text(
-                  'Profile',
-                  style: TextStyle(
-                      color: Colors.deepPurple,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                title: InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProfileSettings()));
+                  },
+                  child: const Text(
+                    'Profile',
+                    style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
                 trailing: const Icon(
                   Icons.arrow_forward_ios,
@@ -87,12 +95,18 @@ class Settings extends StatelessWidget {
                       Icons.notifications_outlined,
                       color: Colors.deepPurple,
                     )),
-                title: const Text(
-                  'Notifications',
-                  style: TextStyle(
-                      color: Colors.deepPurple,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                title: InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => Notifications()));
+                  },
+                  child: const Text(
+                    'Notifications',
+                    style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
                 trailing: const Icon(
                   Icons.arrow_forward_ios,

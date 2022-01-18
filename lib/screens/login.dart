@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wallet_app/screens/home.dart';
+import 'package:wallet_app/screens/sign_in.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -86,6 +88,12 @@ class Login extends StatelessWidget {
                                 hintText: 'enter your username',
                                 labelText: 'Username',
                               ),
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Invalid field';
+                                }
+                                return null;
+                              },
                             ),
                           )),
                       SizedBox(
@@ -101,6 +109,12 @@ class Login extends StatelessWidget {
                               hintText: 'enter your password',
                               labelText: 'Password',
                             ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Invalid field';
+                              }
+                              return null;
+                            },
                           )),
                       Container(
                         margin: EdgeInsets.only(
@@ -116,7 +130,10 @@ class Login extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: MaterialButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => Home()));
+                                },
                                 color: Colors.deepPurple,
                                 height: 60,
                                 minWidth:
@@ -142,20 +159,26 @@ class Login extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      Text.rich(TextSpan(children: const <TextSpan>[
-                        TextSpan(
-                            text: 'Dont have an account yet?',
-                            style: TextStyle(
-                              color: Colors.black12,
-                              fontWeight: FontWeight.bold,
-                            )),
-                        TextSpan(
-                            text: ' Register',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue,
-                            ))
-                      ])),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => SignIn()));
+                        },
+                        child: Text.rich(TextSpan(children: const <TextSpan>[
+                          TextSpan(
+                              text: 'Dont have an account yet?',
+                              style: TextStyle(
+                                color: Colors.black12,
+                                fontWeight: FontWeight.bold,
+                              )),
+                          TextSpan(
+                              text: ' Register',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue,
+                              ))
+                        ])),
+                      ),
                     ],
                   ),
                 )

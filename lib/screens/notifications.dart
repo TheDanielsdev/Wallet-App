@@ -9,7 +9,11 @@ class Notifications extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          leading: SvgPicture.asset('assets/arrow back.svg'),
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: SvgPicture.asset('assets/arrow back.svg')),
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),

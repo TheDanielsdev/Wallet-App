@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wallet_app/screens/add_card.dart';
+import 'package:wallet_app/screens/notifications.dart';
+import 'package:wallet_app/screens/settings.dart';
+import 'package:wallet_app/screens/stats.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -53,49 +57,55 @@ class Home extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              Stack(
-                children: [
-                  Container(
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => AddCard()));
+                },
+                child: Stack(
+                  children: [
+                    Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: SvgPicture.asset('assets/home_card.svg')),
+                    Container(
                       width: MediaQuery.of(context).size.width,
-                      child: SvgPicture.asset('assets/home_card.svg')),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: SvgPicture.asset('assets/home_design.svg'),
-                  ),
-                  const Positioned(
-                    top: 50,
-                    left: 50,
-                    child: Text(
-                      'Balance',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                      child: SvgPicture.asset('assets/home_design.svg'),
                     ),
-                  ),
-                  Positioned(
-                      top: 70,
+                    const Positioned(
+                      top: 50,
                       left: 50,
-                      child: SvgPicture.asset('assets/home_price.svg')),
-                  const Positioned(
-                    top: 50,
-                    left: 200,
-                    child: Text(
-                      'Card',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                      child: Text(
+                        'Balance',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
-                  const Positioned(
-                    top: 65,
-                    left: 200,
-                    child: Text(
-                      'Mabank',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25),
+                    Positioned(
+                        top: 70,
+                        left: 50,
+                        child: SvgPicture.asset('assets/home_price.svg')),
+                    const Positioned(
+                      top: 50,
+                      left: 200,
+                      child: Text(
+                        'Card',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
-                ],
+                    const Positioned(
+                      top: 65,
+                      left: 200,
+                      child: Text(
+                        'Mabank',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -113,10 +123,67 @@ class Home extends StatelessWidget {
                     child: SvgPicture.asset('assets/last_trans.svg'),
                   ),
                   Positioned(
-                      bottom: 0,
-                      child: Container(
+                      bottom: 10,
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Container(
                           width: MediaQuery.of(context).size.width * 0.9,
-                          child: SvgPicture.asset('assets/home_nav.svg')))
+                          height: MediaQuery.of(context).size.height * 0.1,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.deepPurple,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15, right: 15),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.account_balance_wallet_outlined,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => Stats()));
+                                  },
+                                  icon: const Icon(
+                                    Icons.graphic_eq,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                Notifications()));
+                                  },
+                                  icon: const Icon(
+                                    Icons.notifications,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => Settings()));
+                                  },
+                                  icon: const Icon(
+                                    Icons.settings,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ))
                 ],
               )
             ],

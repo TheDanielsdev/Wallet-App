@@ -1,4 +1,4 @@
-#Mon Jan 17 10:29:24 WAT 2022
+#Tue Jan 18 07:28:42 WAT 2022
 base.0=C\:\\Users\\USER\\New Flutter Apps\\wallet_app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

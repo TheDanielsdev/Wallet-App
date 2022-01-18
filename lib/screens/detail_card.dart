@@ -11,6 +11,9 @@ class DetailCard extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           leading: GestureDetector(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
             child: SvgPicture.asset(
               'assets/arrow back.svg',
             ),
@@ -155,12 +158,17 @@ class DetailCard extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const Text(
-                'Delete Card',
-                style: TextStyle(
-                    color: Colors.deepPurpleAccent,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text(
+                  'Delete Card',
+                  style: TextStyle(
+                      color: Colors.deepPurpleAccent,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
               ),
               const SizedBox(
                 height: 30,

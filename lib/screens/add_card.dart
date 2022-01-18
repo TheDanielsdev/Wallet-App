@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wallet_app/screens/detail_card.dart';
 
 class AddCard extends StatelessWidget {
   const AddCard({Key? key}) : super(key: key);
@@ -11,6 +12,9 @@ class AddCard extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           leading: GestureDetector(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
             child: SvgPicture.asset(
               'assets/arrow back.svg',
             ),
@@ -42,34 +46,40 @@ class AddCard extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Stack(
-                children: [
-                  // ignore: avoid_unnecessary_containers
-                  Container(
-                    decoration: BoxDecoration(boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          blurRadius: 10,
-                          spreadRadius: 0,
-                          offset: const Offset(
-                            15,
-                            12,
-                          ))
-                    ]),
-                    child: SvgPicture.asset(
-                      'assets/card body.svg',
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => DetailCard()));
+                },
+                child: Stack(
+                  children: [
+                    // ignore: avoid_unnecessary_containers
+                    Container(
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            blurRadius: 10,
+                            spreadRadius: 0,
+                            offset: const Offset(
+                              15,
+                              12,
+                            ))
+                      ]),
+                      child: SvgPicture.asset(
+                        'assets/card body.svg',
+                      ),
                     ),
-                  ),
-                  SvgPicture.asset('assets/card design.svg'),
-                  Positioned(
-                      top: 70,
-                      left: 30,
-                      child: SvgPicture.asset('assets/card chip.svg')),
-                  Positioned(
-                      bottom: 40,
-                      right: 30,
-                      child: SvgPicture.asset('assets/card text.svg'))
-                ],
+                    SvgPicture.asset('assets/card design.svg'),
+                    Positioned(
+                        top: 70,
+                        left: 30,
+                        child: SvgPicture.asset('assets/card chip.svg')),
+                    Positioned(
+                        bottom: 40,
+                        right: 30,
+                        child: SvgPicture.asset('assets/card text.svg'))
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 30,

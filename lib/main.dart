@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     // <String, WidgetBuilder>{'/': (context) => const Welcome()};
 
     return const MaterialApp(
-      home: Home(),
+      home: Welcome(),
     );
   }
 }
